@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" role="img" aria-labelledby="title desc">
+  <title id="title">UFCU</title>
+  <desc id="desc">UFCU logo in a navy oval with an orange border</desc>
+  <ellipse cx="310" cy="155" rx="302" ry="147" fill="#ff5a19"/>
+  <ellipse cx="310" cy="155" rx="288" ry="133" fill="#fff"/>
+  <ellipse cx="310" cy="155" rx="276" ry="121" fill="#061d49"/>
+  <text x="310" y="211" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="190" font-weight="700" letter-spacing="-12" text-anchor="middle">ufcu</text>
+  <text x="524" y="218" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">TM</text>
+</svg>
