@@ -21,16 +21,18 @@ function updateApplicationProgress() {
   const detailsComplete = requiredFields.every(field => userData[field]);
   const fundingComplete = Boolean(userData.funding);
   const verificationComplete = document.getElementById('phone-status').classList.contains('done');
-  const completion = [accountComplete, detailsComplete, fundingComplete, verificationComplete];
+  const disclosureComplete = document.getElementById('input-agree').checked;
+  const completion = [accountComplete, detailsComplete, fundingComplete, verificationComplete, disclosureComplete];
   const completedCount = completion.filter(Boolean).length;
 
-  trustFill.style.width = (35 + completedCount * 16.25) + '%';
+  trustFill.style.width = (35 + completedCount * 13) + '%';
   applicationSteps.forEach((step, index) => step.classList.toggle('active', index <= completedCount));
   document.getElementById('btn-account-next').disabled = !accountComplete;
   document.getElementById('btn-details-next').disabled = !detailsComplete;
   document.getElementById('btn-funding-next').disabled = !fundingComplete;
   document.getElementById('btn-verification-next').disabled = !verificationComplete;
-  document.getElementById('btn-finish').disabled = !verificationComplete;
+  document.getElementById('btn-disclosure-next').disabled = !disclosureComplete;
+  document.getElementById('btn-finish').disabled = !disclosureComplete;
 }
 
 function updateSummary() {
@@ -55,6 +57,9 @@ function resetApplication() {
   document.getElementById('phone-status').classList.remove('done');
   document.getElementById('btn-scan-id').disabled = false;
   document.getElementById('btn-verify-phone').disabled = true;
+  document.getElementById('input-agree').checked = false;
+  document.getElementById('input-agree').disabled = true;
+  document.getElementById('btn-disclosure-next').disabled = true;
   document.getElementById('btn-finish').disabled = true;
   applicationSteps.forEach((step, index) => step.classList.toggle('active', index === 0));
   applicationScroll.scrollTop = 0;
@@ -129,13 +134,24 @@ requiredFields.filter(field => field !== 'ssn').forEach(field => {
   ['btn-account-next', 'details-section'],
   ['btn-details-next', 'funding-section'],
   ['btn-funding-next', 'verification-section'],
-  ['btn-verification-next', 'summary-section']
+  ['btn-verification-next', 'disclosure-section'],
+  ['btn-disclosure-next', 'summary-section']
 ].forEach(([buttonId, sectionId]) => {
   document.getElementById(buttonId).addEventListener('click', () => {
     if (sectionId === 'summary-section') updateSummary();
     scrollToSection(sectionId);
   });
 });
+
+applicationScroll.addEventListener('scroll', () => {
+  const disclosure = document.getElementById('disclosure-section');
+  const reachedBottom = applicationScroll.scrollTop + applicationScroll.clientHeight >= disclosure.offsetTop + disclosure.offsetHeight - 20;
+  const agreement = document.getElementById('input-agree');
+  agreement.disabled = !reachedBottom;
+  updateApplicationProgress();
+});
+
+document.getElementById('input-agree').addEventListener('change', updateApplicationProgress);
 
 document.getElementById('btn-application-back').addEventListener('click', () => {
   siteShell.classList.remove('application-mode');
@@ -184,6 +200,9 @@ document.getElementById('btn-finish').addEventListener('click', () => {
   updateSummary();
   trustFill.style.width = '100%';
   applicationSteps.forEach(step => step.classList.add('active'));
+  document.getElementById('success-product').textContent = userData.product || 'Your new account';
+  goToScreen('screen-success', 100);
 });
 
 document.getElementById('btn-restart').addEventListener('click', resetApplication);
+document.getElementById('btn-success-restart').addEventListener('click', resetApplication);
