@@ -121,3 +121,41 @@ body {
 .btn-primary:hover {
   opacity: 0.9;
 }
+
+/* ===== PRODUCT SELECTION CARDS ===== */
+.product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  max-width: 480px;
+}
+
+.product-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.product-card:hover {
+  border-color: var(--orange);
+}
+
+.product-card.selected {
+  border-color: var(--orange);
+  background: #fff6f0;
+}
+
+.product-card h3 {
+  color: var(--navy);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.product-card p {
+  color: var(--gray-text);
+  font-size: 13px;
+  margin-bottom: 0;
+}
