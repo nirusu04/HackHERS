@@ -61,5 +61,26 @@ document.getElementById('btn-verify-phone').addEventListener('click', () => {
 });
 
 document.getElementById('btn-verify-next').addEventListener('click', () => {
-  console.log('Ready for success screen. Full data:', userData);
+  document.getElementById('success-name').textContent = userData.name || 'there';
+  document.getElementById('summary-product').textContent = userData.product;
+  document.getElementById('summary-email').textContent = userData.email;
+  document.getElementById('summary-phone').textContent = userData.phone;
+  goToScreen('screen-success', 100, 3);
+});
+
+document.getElementById('btn-restart').addEventListener('click', () => {
+  userData = {};
+  document.getElementById('input-name').value = '';
+  document.getElementById('input-dob').value = '';
+  document.getElementById('input-email').value = '';
+  document.getElementById('input-phone').value = '';
+  document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('id-status').textContent = 'Not started';
+  document.getElementById('id-status').classList.remove('done');
+  document.getElementById('phone-status').textContent = 'Not started';
+  document.getElementById('phone-status').classList.remove('done');
+  document.getElementById('btn-scan-id').disabled = false;
+  document.getElementById('btn-verify-phone').disabled = true;
+  document.getElementById('btn-verify-next').disabled = true;
+  goToScreen('screen-welcome', 0, 0);
 });
