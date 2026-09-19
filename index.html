@@ -29,6 +29,7 @@
       <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+      <span class="dot"></span>
     </div>
 
     <div class="trust-meter-track">
@@ -40,6 +41,53 @@
         <h2>Welcome to UFCU</h2>
         <p>Opening an account shouldn't feel like a maze. Let's get you started — simply, and with full trust every step of the way.</p>
         <button id="btn-get-started" class="btn-primary">Get Started</button>
+      </div>
+    </div>
+
+    <div class="screen" id="screen-eligibility">
+      <div class="content">
+        <p class="eyebrow">Let’s make this yours</p>
+        <h2>Tell us about yourself</h2>
+        <p class="why-text">Choose the path that best describes your connection to UFCU.</p>
+
+        <div class="eligibility-options">
+          <button class="eligibility-card" id="btn-affiliation" type="button">
+            <span class="selection-indicator" aria-hidden="true"></span>
+            <span>
+              <strong>I am an employee, student, or alumni of</strong>
+              <span class="card-caption">Choose your Texas university or organization</span>
+            </span>
+          </button>
+
+          <div class="affiliation-select-wrap" id="affiliation-select-wrap" hidden>
+            <label for="input-affiliation">University or organization</label>
+            <select id="input-affiliation" class="select-field">
+              <option value="">Select</option>
+              <option>University of Texas at Austin</option>
+              <option>Texas A&amp;M University</option>
+              <option>Texas State University</option>
+              <option>Texas Tech University</option>
+              <option>University of Houston</option>
+              <option>University of North Texas</option>
+              <option>University of Texas at Arlington</option>
+              <option>University of Texas at Dallas</option>
+              <option>University of Texas at San Antonio</option>
+              <option>Baylor University</option>
+              <option>Rice University</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button class="eligibility-card" id="btn-acc" type="button">
+            <span class="selection-indicator" aria-hidden="true"></span>
+            <span>
+              <strong>I’d like to join UFCU through the American Consumer Council for free.</strong>
+              <span class="card-caption">No additional action is needed</span>
+            </span>
+          </button>
+        </div>
+
+        <button id="btn-eligibility-next" class="btn-primary" type="button" disabled>Continue</button>
       </div>
     </div>
 
@@ -123,6 +171,16 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="modal-backdrop" id="acc-modal" hidden>
+    <section class="info-modal" role="dialog" aria-modal="true" aria-labelledby="acc-modal-title">
+      <button class="modal-close" id="btn-close-acc-modal" type="button" aria-label="Close American Consumer Council information">×</button>
+      <p class="eyebrow">Membership information</p>
+      <h2 id="acc-modal-title">Joining the American Consumer Council</h2>
+      <p>No additional action is needed. UFCU takes care of everything for you. Your information will not be shared with third parties.</p>
+      <p>The American Consumer Council's mission is to educate and guide consumers in their purchase of safe, reliable products and services.</p>
+    </section>
   </div>
 
   <script src="script.js"></script>

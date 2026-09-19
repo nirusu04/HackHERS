@@ -11,7 +11,50 @@ function goToScreen(screenId, trustPercent, stepIndex) {
 }
 
 document.getElementById('btn-get-started').addEventListener('click', () => {
-  goToScreen('screen-info', 25, 1);
+  goToScreen('screen-eligibility', 20, 1);
+});
+
+const eligibilityNext = document.getElementById('btn-eligibility-next');
+const affiliationCard = document.getElementById('btn-affiliation');
+const accCard = document.getElementById('btn-acc');
+const affiliationSelectWrap = document.getElementById('affiliation-select-wrap');
+const affiliationSelect = document.getElementById('input-affiliation');
+const accModal = document.getElementById('acc-modal');
+
+function selectEligibilityCard(selectedCard) {
+  [affiliationCard, accCard].forEach(card => card.classList.toggle('selected', card === selectedCard));
+  eligibilityNext.disabled = false;
+}
+
+affiliationCard.addEventListener('click', () => {
+  selectEligibilityCard(affiliationCard);
+  affiliationSelectWrap.hidden = false;
+});
+
+accCard.addEventListener('click', () => {
+  selectEligibilityCard(accCard);
+  affiliationSelectWrap.hidden = true;
+  affiliationSelect.value = '';
+  accModal.hidden = false;
+});
+
+document.getElementById('btn-close-acc-modal').addEventListener('click', () => {
+  accModal.hidden = true;
+});
+
+accModal.addEventListener('click', event => {
+  if (event.target === accModal) accModal.hidden = true;
+});
+
+affiliationSelect.addEventListener('change', () => {
+  eligibilityNext.disabled = !affiliationSelect.value;
+});
+
+eligibilityNext.addEventListener('click', () => {
+  userData.affiliation = accCard.classList.contains('selected')
+    ? 'American Consumer Council'
+    : affiliationSelect.value;
+  goToScreen('screen-info', 40, 2);
 });
 
 document.getElementById('btn-info-next').addEventListener('click', () => {
@@ -19,7 +62,7 @@ document.getElementById('btn-info-next').addEventListener('click', () => {
   userData.dob = document.getElementById('input-dob').value;
   userData.email = document.getElementById('input-email').value;
   userData.phone = document.getElementById('input-phone').value;
-  goToScreen('screen-product', 50, 2);
+  goToScreen('screen-product', 60, 3);
 });
 
 document.querySelectorAll('.product-card').forEach(card => {
@@ -35,7 +78,7 @@ document.getElementById('btn-product-next').addEventListener('click', () => {
     alert('Please select an account type to continue.');
     return;
   }
-  goToScreen('screen-verify', 75, 3);
+  goToScreen('screen-verify', 80, 4);
 });
 
 document.getElementById('btn-scan-id').addEventListener('click', () => {
@@ -65,7 +108,7 @@ document.getElementById('btn-verify-next').addEventListener('click', () => {
   document.getElementById('summary-product').textContent = userData.product;
   document.getElementById('summary-email').textContent = userData.email;
   document.getElementById('summary-phone').textContent = userData.phone;
-  goToScreen('screen-success', 100, 3);
+  goToScreen('screen-success', 100, 4);
 });
 
 document.getElementById('btn-restart').addEventListener('click', () => {
@@ -75,6 +118,12 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   document.getElementById('input-email').value = '';
   document.getElementById('input-phone').value = '';
   document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  affiliationCard.classList.remove('selected');
+  accCard.classList.remove('selected');
+  affiliationSelectWrap.hidden = true;
+  affiliationSelect.value = '';
+  eligibilityNext.disabled = true;
+  accModal.hidden = true;
   document.getElementById('id-status').textContent = 'Not started';
   document.getElementById('id-status').classList.remove('done');
   document.getElementById('phone-status').textContent = 'Not started';
