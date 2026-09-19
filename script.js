@@ -119,6 +119,7 @@ ssnInput.addEventListener('input', event => {
   const digits = event.target.value.replace(/\D/g, '').slice(0, 9);
   const formatted = digits.replace(/(\d{3})(\d{2})(\d{0,4})/, '$1-$2-$3').replace(/-$/, '');
   event.target.value = formatted;
+  event.target.setSelectionRange(formatted.length, formatted.length);
   userData.ssn = digits.length === 9 ? formatted : '';
   updateApplicationProgress();
 });
