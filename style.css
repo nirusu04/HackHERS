@@ -150,7 +150,7 @@ body {
 .choice-divider { color: var(--navy); font-size: 17px; }
 .back-button { display: grid; place-items: center; width: 42px; height: 42px; margin: 0 0 24px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.42); color: var(--navy); font-size: 27px; line-height: 1; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
 .back-button:hover { background: rgba(255, 255, 255, 0.62); transform: translateX(-3px); }
-.welcome-illustration { position: absolute; z-index: 1; right: 0; bottom: 0; width: 40%; max-width: 360px; height: auto; opacity: 0.9; pointer-events: none; }
+.welcome-illustration { position: absolute; z-index: 1; right: 0; bottom: 0; width: 40%; max-width: 360px; height: auto; opacity: 0.76; pointer-events: none; }
 
 /* ===== PRODUCT CARDS ===== */
 .product-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; max-width: 480px; }

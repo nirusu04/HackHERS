@@ -1,36 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Seated woman with a finance bubble</title>
-  <desc id="desc">An original minimal navy line illustration of a woman sitting with a laptop and an orange money bubble</desc>
-  <g stroke="#1b315f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-    <!-- flowing hair and profile -->
-    <path d="M190 93c-18-31-6-64 28-76 39-14 73 12 72 47-1 20-14 34-31 43"/>
-    <path d="M259 78c21 4 42 17 50 38 6 16 2 34-8 49"/>
-    <path d="M210 79c-11 27-8 53 10 72 12 13 28 20 46 20"/>
-    <path d="M192 96c-20 25-25 66-12 106l20 58"/>
-    <path d="M290 151c-8 14-19 22-35 25"/>
-    <!-- torso and arm -->
-    <path d="M202 172c33 3 65 20 81 51 9 17 13 35 16 54"/>
-    <path d="M283 208l81-35c13-6 24 9 13 18l-75 56"/>
-    <path d="M221 204c17 24 38 38 63 43 20 4 38 1 55-8"/>
-    <!-- laptop -->
-    <rect x="211" y="238" width="142" height="88" rx="6" fill="#f6b797"/>
-    <path d="M192 335h178l-20 18H214z" fill="#f6b797"/>
-    <path d="M237 260h92M237 277h68" opacity=".72"/>
-    <!-- crossed legs and shoes -->
-    <path d="M204 337c-26 25-47 51-65 79"/>
-    <path d="M139 416h58l11-10h-61z" fill="#f6b797"/>
-    <path d="M328 333c22 29 40 58 63 73 19 12 41 17 66 17"/>
-    <path d="M448 423h52"/>
-    <!-- chair line -->
-    <path d="M118 332c-10-46 1-78 27-99" opacity=".55"/>
-    <path d="M116 335c-23 25-37 53-47 83" opacity=".55"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 410" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Soft abstract workspace with a finance symbol</title>
+  <desc id="desc">Original soft line-art illustration of a laptop, plant, books, coffee, and a subtle money bubble</desc>
+  <g stroke="#39527f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity=".78">
+    <path d="M34 347c104-9 190 1 288-1 121-3 227-11 364-2"/>
+    <path d="M76 320c35-5 73-4 111 1l17 11H61z" fill="#d6c9d1" opacity=".7"/>
+    <path d="M86 302c32-5 67-4 101 1l15 11H72z" fill="#e8d8cf" opacity=".8"/>
+    <path d="M99 284c27-4 57-3 86 1l14 11H86z" fill="#cfd8cf" opacity=".75"/>
+
+    <path d="M214 260h72l-9 86h-55z" fill="#e8c9bd" opacity=".85"/>
+    <path d="M244 260c-8-42-30-70-59-77 3 32 24 59 59 77Z" fill="#bcc9b8" opacity=".75"/>
+    <path d="M249 251c-1-49 19-83 53-104-2 43-21 77-53 104Z" fill="#d0d8bd" opacity=".78"/>
+    <path d="M242 242c-21-30-20-60-1-87 19 25 21 57 1 87Z" fill="#c4d0ba" opacity=".68"/>
+    <path d="M250 260c-3-63-5-92-9-126M250 228c14-32 28-57 51-81M238 239c-18-26-33-43-52-55"/>
+
+    <path d="M330 264h66l-7 77h-52z" fill="#e8c9bd" opacity=".8"/>
+    <path d="M396 278c30-8 33 34 1 39"/>
+    <path d="M348 242c-10-14 12-21 1-35M371 239c-10-14 13-20 2-37" opacity=".5"/>
+
+    <path d="M431 194h201l28 126H459z" fill="#ecd9d1" opacity=".65"/>
+    <path d="M458 325h230l20 17H431z" fill="#d3c5cd" opacity=".75"/>
+    <circle cx="534" cy="260" r="13"/>
+
+    <path d="M534 194c-31-43-88-60-143-39-48 18-84 14-107-7-18-17-18-39-1-55"/>
+    <path d="M282 93c-20-16-44-18-65-5"/>
+    <path d="M235 70l-8-18M263 58l4-22M291 69l18-17" opacity=".5"/>
   </g>
-  <!-- curved money accent -->
-  <g stroke="#f99a69" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M334 104c39-28 80-25 106 2 13 13 18 29 17 45"/>
-    <circle cx="327" cy="78" r="28" fill="#f6b797"/>
-    <path d="M327 61v34M314 70c5-8 23-7 25 2 3 12-26 10-26 23 0 10 24 13 29 2"/>
-    <circle cx="393" cy="59" r="7" fill="#f99a69" stroke="none"/>
-    <circle cx="432" cy="91" r="4" fill="#f99a69" stroke="none"/>
+  <g stroke="#d98262" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity=".78">
+    <circle cx="261" cy="104" r="40" fill="#f3c8b5"/>
+    <path d="M261 80v48M246 91c6-10 28-9 31 3 3 15-35 14-35 30 0 15 34 18 42 3"/>
+  </g>
+  <g fill="#d98262" opacity=".65">
+    <circle cx="192" cy="92" r="5"/>
+    <circle cx="324" cy="69" r="4"/>
+    <circle cx="338" cy="103" r="3"/>
   </g>
 </svg>
