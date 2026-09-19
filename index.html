@@ -22,6 +22,17 @@
         <span>Routing Number #</span>
         <strong>111111111</strong>
       </div>
+      <div class="application-rail" id="application-rail" aria-label="Application progress">
+        <div class="application-step active" data-section="account-section"><span class="step-bubble">1</span><span>Account selection</span></div>
+        <div class="step-line"></div>
+        <div class="application-step" data-section="details-section"><span class="step-bubble">2</span><span>Your info</span></div>
+        <div class="step-line"></div>
+        <div class="application-step" data-section="verification-section"><span class="step-bubble">3</span><span>Verification</span></div>
+        <div class="step-line"></div>
+        <div class="application-step" data-section="disclosure-section"><span class="step-bubble">4</span><span>Disclosure</span></div>
+        <div class="step-line"></div>
+        <div class="application-step" data-section="summary-section"><span class="step-bubble">5</span><span>Review</span></div>
+      </div>
     </aside>
 
     <main class="main-stage">
@@ -45,11 +56,13 @@
           <span class="choice-divider">or</span>
           <button id="btn-get-started" class="btn-primary" type="button">Sign up</button>
         </div>
+        <img class="welcome-illustration" src="welcome-illustration.svg" alt="Person using a laptop with a finance symbol above them">
       </div>
     </div>
 
     <div class="screen" id="screen-eligibility">
       <div class="content">
+        <button class="back-button" id="btn-eligibility-back" type="button" aria-label="Back to welcome">←</button>
         <h2>Let’s Get Started</h2>
         <p class="why-text">Tell us how you’d like to join UFCU.</p>
 
@@ -98,31 +111,24 @@
 
     <div class="screen application-screen" id="screen-application">
       <div class="application-layout">
-        <aside class="application-steps" aria-label="Application progress">
-          <div class="application-step active" data-section="account-section"><span class="step-bubble">1</span><span>Account selection</span></div>
-          <div class="step-line"></div>
-          <div class="application-step" data-section="details-section"><span class="step-bubble">2</span><span>Your info</span></div>
-          <div class="step-line"></div>
-          <div class="application-step" data-section="verification-section"><span class="step-bubble">3</span><span>Verification</span></div>
-          <div class="step-line"></div>
-          <div class="application-step" data-section="disclosure-section"><span class="step-bubble">4</span><span>Disclosure</span></div>
-          <div class="step-line"></div>
-          <div class="application-step" data-section="summary-section"><span class="step-bubble">5</span><span>Review</span></div>
-        </aside>
-
         <div class="application-scroll" id="application-scroll">
           <section class="application-section" id="account-section">
+            <button class="back-button" id="btn-application-back" type="button" aria-label="Back to eligibility">←</button>
             <p class="eyebrow">Step 1 of 5</p>
-            <h2>Choose your account</h2>
+            <h2>Account Selection</h2>
             <p class="section-intro">Pick the account that fits the way you want to move through life.</p>
             <div class="product-cards">
-              <button class="product-card" data-product="Checking" type="button"><strong>Checking</strong><span>Everyday spending, debit card, no minimum balance.</span></button>
-              <button class="product-card" data-product="Savings" type="button"><strong>Savings</strong><span>Grow your money with a better rate than big banks.</span></button>
-              <button class="product-card" data-product="Credit Builder" type="button"><strong>Credit Builder</strong><span>Start building credit history safely, from day one.</span></button>
+              <button class="product-card" data-product="Free Checking" type="button"><strong>Free Checking <span class="expand-arrow">⌄</span></strong><span class="product-detail">Everyday spending with a simple, flexible start.</span></button>
+              <button class="product-card" data-product="Plus Checking" type="button"><strong>Plus Checking <span class="expand-arrow">⌄</span></strong><span class="product-detail">More checking flexibility for your everyday money.</span></button>
+              <button class="product-card" data-product="Simply U" type="button"><strong>Simply U <span class="expand-arrow">⌄</span></strong><span class="product-detail">A straightforward account for building your financial routine.</span></button>
+              <button class="product-card" data-product="Savings" type="button"><strong>Savings <span class="expand-arrow">⌄</span></strong><span class="product-detail">Set money aside and keep your goals moving.</span></button>
+              <button class="product-card" data-product="Special Savings" type="button"><strong>Special Savings <span class="expand-arrow">⌄</span></strong><span class="product-detail">A focused place for a specific savings goal.</span></button>
             </div>
+            <div class="section-actions"><button id="btn-account-next" class="btn-primary" type="button" disabled>Continue</button></div>
           </section>
 
           <section class="application-section" id="details-section">
+            <button class="back-button section-back" type="button" data-back-section="account-section" aria-label="Back to account selection">←</button>
             <p class="eyebrow">Step 2 of 5</p>
             <h2>Your details</h2>
             <p class="section-intro">We use this to set up your account securely.</p>
@@ -132,9 +138,11 @@
               <input type="email" id="input-email" placeholder="Email" class="input-field">
               <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
             </div>
+            <div class="section-actions"><button id="btn-details-next" class="btn-primary" type="button" disabled>Continue</button></div>
           </section>
 
           <section class="application-section" id="verification-section">
+            <button class="back-button section-back" type="button" data-back-section="details-section" aria-label="Back to your information">←</button>
             <p class="eyebrow">Step 3 of 5</p>
             <h2>Verify it’s you</h2>
             <p class="section-intro">Quick, secure checks. This demo uses mocked verification.</p>
@@ -142,17 +150,21 @@
               <div class="verify-step" id="step-id"><div class="verify-row"><span class="verify-label">Identity Check</span><span class="verify-status" id="id-status">Not started</span></div><button id="btn-scan-id" class="btn-secondary" type="button">Scan ID</button></div>
               <div class="verify-step" id="step-phone"><div class="verify-row"><span class="verify-label">Phone Verification</span><span class="verify-status" id="phone-status">Not started</span></div><button id="btn-verify-phone" class="btn-secondary" type="button" disabled>Verify Phone</button></div>
             </div>
+            <div class="section-actions"><button id="btn-verification-next" class="btn-primary" type="button" disabled>Continue</button></div>
           </section>
 
           <section class="application-section disclosure-section" id="disclosure-section">
+            <button class="back-button section-back" type="button" data-back-section="verification-section" aria-label="Back to verification">←</button>
             <p class="eyebrow">Step 4 of 5</p>
             <h2>Review disclosures</h2>
             <p class="section-intro">Please read the information below before continuing.</p>
             <div class="disclosure-copy"><p>By opening an account, you agree to UFCU’s account terms, privacy practices, and electronic communications. Review the information carefully before submitting your application.</p><p>Your information is used to provide your requested products and services and is handled securely.</p><p>Scroll to the bottom of this section to unlock the agreement.</p></div>
             <label class="agreement-control"><input id="input-agree" type="checkbox" disabled><span>I have read and agree to the disclosures.</span></label>
+            <div class="section-actions"><button id="btn-disclosure-next" class="btn-primary" type="button" disabled>Continue</button></div>
           </section>
 
           <section class="application-section summary-section" id="summary-section">
+            <button class="back-button section-back" type="button" data-back-section="disclosure-section" aria-label="Back to disclosures">←</button>
             <p class="eyebrow">Step 5 of 5</p>
             <h2>Account summary</h2>
             <div class="summary-box"><div class="summary-row"><span>Account Type</span><strong id="summary-product"></strong></div><div class="summary-row"><span>Name</span><strong id="summary-name"></strong></div><div class="summary-row"><span>Email</span><strong id="summary-email"></strong></div><div class="summary-row"><span>Phone</span><strong id="summary-phone"></strong></div></div>

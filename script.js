@@ -1,6 +1,7 @@
 const trustFill = document.getElementById('trust-fill');
 const applicationScroll = document.getElementById('application-scroll');
 const applicationSteps = document.querySelectorAll('.application-step');
+const siteShell = document.querySelector('.site-shell');
 let userData = {};
 
 function goToScreen(screenId, trustPercent) {
@@ -15,6 +16,10 @@ document.getElementById('btn-get-started').addEventListener('click', () => {
 
 document.getElementById('btn-login').addEventListener('click', () => {
   goToScreen('screen-eligibility', 20);
+});
+
+document.getElementById('btn-eligibility-back').addEventListener('click', () => {
+  goToScreen('screen-welcome', 0);
 });
 
 const eligibilityNext = document.getElementById('btn-eligibility-next');
@@ -55,6 +60,7 @@ affiliationSelect.addEventListener('change', () => {
 
 eligibilityNext.addEventListener('click', () => {
   userData.affiliation = accCard.classList.contains('selected') ? 'American Consumer Council' : affiliationSelect.value;
+  siteShell.classList.add('application-mode');
   goToScreen('screen-application', 35);
   applicationScroll.scrollTop = 0;
 });
@@ -62,10 +68,23 @@ eligibilityNext.addEventListener('click', () => {
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.product-card').forEach(item => item.classList.remove('selected'));
+    document.querySelectorAll('.product-card').forEach(item => item.classList.remove('expanded'));
     card.classList.add('selected');
+    card.classList.add('expanded');
     userData.product = card.dataset.product;
     updateApplicationProgress();
   });
+});
+
+document.querySelectorAll('.section-back').forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById(button.dataset.backSection).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+document.getElementById('btn-application-back').addEventListener('click', () => {
+  siteShell.classList.remove('application-mode');
+  goToScreen('screen-eligibility', 20);
 });
 
 document.getElementById('btn-scan-id').addEventListener('click', () => {
@@ -106,6 +125,10 @@ function updateApplicationProgress() {
   const completed = [productComplete, infoComplete, verificationComplete, agreementComplete].filter(Boolean).length;
   trustFill.style.width = (35 + completed * 13) + '%';
   applicationSteps.forEach((step, index) => step.classList.toggle('active', index <= completed));
+  document.getElementById('btn-account-next').disabled = !productComplete;
+  document.getElementById('btn-details-next').disabled = !infoComplete;
+  document.getElementById('btn-verification-next').disabled = !verificationComplete;
+  document.getElementById('btn-disclosure-next').disabled = !agreementComplete;
 }
 
 ['name', 'dob', 'email', 'phone'].forEach(field => {
@@ -125,6 +148,17 @@ applicationScroll.addEventListener('scroll', () => {
   updateApplicationProgress();
 });
 
+[
+  ['btn-account-next', 'details-section'],
+  ['btn-details-next', 'verification-section'],
+  ['btn-verification-next', 'disclosure-section'],
+  ['btn-disclosure-next', 'summary-section']
+].forEach(([buttonId, sectionId]) => {
+  document.getElementById(buttonId).addEventListener('click', () => {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
 document.getElementById('input-agree').addEventListener('change', event => {
   document.getElementById('btn-finish').disabled = !event.target.checked;
   updateApplicationProgress();
@@ -141,6 +175,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   userData = {};
   ['name', 'dob', 'email', 'phone'].forEach(field => { document.getElementById('input-' + field).value = ''; });
   document.querySelectorAll('.product-card').forEach(card => card.classList.remove('selected'));
+  document.querySelectorAll('.product-card').forEach(card => card.classList.remove('expanded'));
   affiliationCard.classList.remove('selected');
   accCard.classList.remove('selected');
   affiliationSelectWrap.hidden = true;
@@ -156,8 +191,13 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   document.getElementById('input-agree').checked = false;
   document.getElementById('input-agree').disabled = true;
   document.getElementById('btn-finish').disabled = true;
+  document.getElementById('btn-account-next').disabled = true;
+  document.getElementById('btn-details-next').disabled = true;
+  document.getElementById('btn-verification-next').disabled = true;
+  document.getElementById('btn-disclosure-next').disabled = true;
   document.getElementById('summary-section').classList.remove('complete');
   applicationSteps.forEach((step, index) => step.classList.toggle('active', index === 0));
   applicationScroll.scrollTop = 0;
+  siteShell.classList.remove('application-mode');
   goToScreen('screen-welcome', 0);
 });
