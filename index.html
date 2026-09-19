@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>TrustPath - UFCU</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="site-shell">
+    <aside class="side-rail">
+      <a class="logo" href="#" aria-label="UFCU home">
+        <img src="ufcu-logo.svg" alt="UFCU">
+      </a>
+      <nav class="rail-nav" aria-label="Main navigation">
+        <a href="#explore">Explore Accounts</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
+        <a href="#needs">What you need</a>
+      </nav>
+      <div class="rail-footer">
+        <span>Routing Number #</span>
+        <strong>111111111</strong>
+      </div>
+    </aside>
 
-  <header class="site-header">
-    <a class="logo" href="#" aria-label="UFCU home">
-      <img src="ufcu-logo.svg" alt="UFCU">
-    </a>
-    <nav class="nav-links">
-      <span>Personal</span>
-      <span>Business</span>
-      <span>Locations</span>
-      <span>About</span>
-    </nav>
-  </header>
+    <main class="main-stage">
+      <div class="utility-bar">
+        <span class="flow-label">New member onboarding</span>
+        <a class="help-link" href="#help">Need Help?</a>
+      </div>
 
-  <div class="page-banner">
-    <h1>Open an Account</h1>
-  </div>
-
-  <div id="app">
-
-    <div class="step-dots" id="step-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+      <div id="app">
 
     <div class="trust-meter-track">
       <div class="trust-meter-fill" id="trust-fill"></div>
@@ -38,24 +38,27 @@
 
     <div class="screen active" id="screen-welcome">
       <div class="content">
-        <h2>Welcome to UFCU</h2>
-        <p>Opening an account shouldn't feel like a maze. Let's get you started — simply, and with full trust every step of the way.</p>
-        <button id="btn-get-started" class="btn-primary">Get Started</button>
+        <h2>Welcome</h2>
+        <p>Let’s get you set up simply, securely, and at your own pace.</p>
+        <div class="welcome-actions">
+          <button id="btn-login" class="btn-primary btn-login" type="button">Log in</button>
+          <span class="choice-divider">or</span>
+          <button id="btn-get-started" class="btn-primary" type="button">Sign up</button>
+        </div>
       </div>
     </div>
 
     <div class="screen" id="screen-eligibility">
       <div class="content">
-        <p class="eyebrow">Let’s make this yours</p>
-        <h2>Tell us about yourself</h2>
-        <p class="why-text">Choose the path that best describes your connection to UFCU.</p>
+        <h2>Let’s Get Started</h2>
+        <p class="why-text">Tell us how you’d like to join UFCU.</p>
 
         <div class="eligibility-options">
           <button class="eligibility-card" id="btn-affiliation" type="button">
             <span class="selection-indicator" aria-hidden="true"></span>
             <span>
-              <strong>I am an employee, student, or alumni of</strong>
-              <span class="card-caption">Choose your Texas university or organization</span>
+              <strong>I’m affiliated with</strong>
+              <span class="card-caption">Student, employee, or alumni</span>
             </span>
           </button>
 
@@ -78,11 +81,13 @@
             </select>
           </div>
 
+          <span class="eligibility-divider">or</span>
+
           <button class="eligibility-card" id="btn-acc" type="button">
             <span class="selection-indicator" aria-hidden="true"></span>
             <span>
-              <strong>I’d like to join UFCU through the American Consumer Council for free.</strong>
-              <span class="card-caption">No additional action is needed</span>
+              <strong>Join through the ACC</strong>
+              <span class="card-caption">American Consumer Council</span>
             </span>
           </button>
         </div>
@@ -91,86 +96,74 @@
       </div>
     </div>
 
-    <div class="screen" id="screen-info">
-      <div class="content">
-        <h2>Let's get to know you</h2>
-        <p class="why-text">We use this to set up your account securely — nothing more.</p>
+    <div class="screen application-screen" id="screen-application">
+      <div class="application-layout">
+        <aside class="application-steps" aria-label="Application progress">
+          <div class="application-step active" data-section="account-section"><span class="step-bubble">1</span><span>Account selection</span></div>
+          <div class="step-line"></div>
+          <div class="application-step" data-section="details-section"><span class="step-bubble">2</span><span>Your info</span></div>
+          <div class="step-line"></div>
+          <div class="application-step" data-section="verification-section"><span class="step-bubble">3</span><span>Verification</span></div>
+          <div class="step-line"></div>
+          <div class="application-step" data-section="disclosure-section"><span class="step-bubble">4</span><span>Disclosure</span></div>
+          <div class="step-line"></div>
+          <div class="application-step" data-section="summary-section"><span class="step-bubble">5</span><span>Review</span></div>
+        </aside>
 
-        <input type="text" id="input-name" placeholder="Full Name" class="input-field">
-        <input type="text" id="input-dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input-field">
-        <input type="email" id="input-email" placeholder="Email" class="input-field">
-        <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
+        <div class="application-scroll" id="application-scroll">
+          <section class="application-section" id="account-section">
+            <p class="eyebrow">Step 1 of 5</p>
+            <h2>Choose your account</h2>
+            <p class="section-intro">Pick the account that fits the way you want to move through life.</p>
+            <div class="product-cards">
+              <button class="product-card" data-product="Checking" type="button"><strong>Checking</strong><span>Everyday spending, debit card, no minimum balance.</span></button>
+              <button class="product-card" data-product="Savings" type="button"><strong>Savings</strong><span>Grow your money with a better rate than big banks.</span></button>
+              <button class="product-card" data-product="Credit Builder" type="button"><strong>Credit Builder</strong><span>Start building credit history safely, from day one.</span></button>
+            </div>
+          </section>
 
-        <button id="btn-info-next" class="btn-primary">Continue</button>
-      </div>
-    </div>
+          <section class="application-section" id="details-section">
+            <p class="eyebrow">Step 2 of 5</p>
+            <h2>Your details</h2>
+            <p class="section-intro">We use this to set up your account securely.</p>
+            <div class="details-grid">
+              <input type="text" id="input-name" placeholder="Full Name" class="input-field">
+              <input type="text" id="input-dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input-field">
+              <input type="email" id="input-email" placeholder="Email" class="input-field">
+              <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
+            </div>
+          </section>
 
-    <div class="screen" id="screen-product">
-      <div class="content">
-        <h2>What can we help you with?</h2>
-        <p class="why-text">Pick one to get a personalized setup — you can always add more later.</p>
+          <section class="application-section" id="verification-section">
+            <p class="eyebrow">Step 3 of 5</p>
+            <h2>Verify it’s you</h2>
+            <p class="section-intro">Quick, secure checks. This demo uses mocked verification.</p>
+            <div class="verify-actions">
+              <div class="verify-step" id="step-id"><div class="verify-row"><span class="verify-label">Identity Check</span><span class="verify-status" id="id-status">Not started</span></div><button id="btn-scan-id" class="btn-secondary" type="button">Scan ID</button></div>
+              <div class="verify-step" id="step-phone"><div class="verify-row"><span class="verify-label">Phone Verification</span><span class="verify-status" id="phone-status">Not started</span></div><button id="btn-verify-phone" class="btn-secondary" type="button" disabled>Verify Phone</button></div>
+            </div>
+          </section>
 
-        <div class="product-cards">
-          <div class="product-card" data-product="Checking">
-            <h3>Checking</h3>
-            <p>Everyday spending, debit card, no minimum balance.</p>
-          </div>
-          <div class="product-card" data-product="Savings">
-            <h3>Savings</h3>
-            <p>Grow your money with a better rate than big banks.</p>
-          </div>
-          <div class="product-card" data-product="Credit Builder">
-            <h3>Credit Builder</h3>
-            <p>Start building credit history safely, from day one.</p>
-          </div>
+          <section class="application-section disclosure-section" id="disclosure-section">
+            <p class="eyebrow">Step 4 of 5</p>
+            <h2>Review disclosures</h2>
+            <p class="section-intro">Please read the information below before continuing.</p>
+            <div class="disclosure-copy"><p>By opening an account, you agree to UFCU’s account terms, privacy practices, and electronic communications. Review the information carefully before submitting your application.</p><p>Your information is used to provide your requested products and services and is handled securely.</p><p>Scroll to the bottom of this section to unlock the agreement.</p></div>
+            <label class="agreement-control"><input id="input-agree" type="checkbox" disabled><span>I have read and agree to the disclosures.</span></label>
+          </section>
+
+          <section class="application-section summary-section" id="summary-section">
+            <p class="eyebrow">Step 5 of 5</p>
+            <h2>Account summary</h2>
+            <div class="summary-box"><div class="summary-row"><span>Account Type</span><strong id="summary-product"></strong></div><div class="summary-row"><span>Name</span><strong id="summary-name"></strong></div><div class="summary-row"><span>Email</span><strong id="summary-email"></strong></div><div class="summary-row"><span>Phone</span><strong id="summary-phone"></strong></div></div>
+            <button id="btn-finish" class="btn-primary" type="button" disabled>Finish</button>
+            <button id="btn-restart" class="btn-secondary" type="button">Start Over</button>
+          </section>
         </div>
-
-        <button id="btn-product-next" class="btn-primary">Continue</button>
       </div>
-    </div>
 
-    <div class="screen" id="screen-verify">
-      <div class="content">
-        <h2>Let's verify it's you</h2>
-        <p class="why-text">Quick, secure checks — mocked for this demo; real UFCU uses bank-grade verification.</p>
-
-        <div class="verify-step" id="step-id">
-          <div class="verify-row">
-            <span class="verify-label">Identity Check</span>
-            <span class="verify-status" id="id-status">Not started</span>
-          </div>
-          <button id="btn-scan-id" class="btn-secondary">Scan ID</button>
-        </div>
-
-        <div class="verify-step" id="step-phone">
-          <div class="verify-row">
-            <span class="verify-label">Phone Verification</span>
-            <span class="verify-status" id="phone-status">Not started</span>
-          </div>
-          <button id="btn-verify-phone" class="btn-secondary" disabled>Verify Phone</button>
-        </div>
-
-        <button id="btn-verify-next" class="btn-primary" disabled>Continue</button>
       </div>
-    </div>
-
-    <div class="screen" id="screen-success">
-      <div class="content">
-        <div class="success-check">✓</div>
-        <h2>Welcome to UFCU, <span id="success-name"></span>!</h2>
-        <p>Your account is ready. Here's a quick summary:</p>
-
-        <div class="summary-box">
-          <div class="summary-row"><span>Account Type</span><strong id="summary-product"></strong></div>
-          <div class="summary-row"><span>Email</span><strong id="summary-email"></strong></div>
-          <div class="summary-row"><span>Phone</span><strong id="summary-phone"></strong></div>
-          <div class="summary-row"><span>Identity</span><strong class="verify-status done">Verified ✓</strong></div>
-        </div>
-
-        <button id="btn-restart" class="btn-secondary">Start Over</button>
-      </div>
-    </div>
-
+    </main>
   </div>
 
   <div class="modal-backdrop" id="acc-modal" hidden>

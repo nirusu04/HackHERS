@@ -121,10 +121,12 @@ body {
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover { background: #ffad7f; box-shadow: 0 9px 20px rgba(110, 54, 39, 0.14); transform: translateY(-2px); }
+.btn-primary:active,
+.btn-primary.selected { background: #d96f48; transform: translateY(1px); box-shadow: none; }
 .welcome-actions { display: flex; align-items: center; gap: clamp(20px, 5vw, 72px); margin-top: 52px; }
 .welcome-actions .btn-primary { min-width: 216px; }
-.btn-login { background: rgba(255, 255, 255, 0.16); color: var(--navy); border: 1px solid rgba(27, 49, 95, 0.25); }
-.btn-login:hover { background: rgba(255, 255, 255, 0.32); }
+.btn-login { background: var(--orange); color: white; }
+.btn-login:hover { background: #ffad7f; }
 .choice-divider { color: var(--navy); font-size: 17px; }
 
 /* ===== PRODUCT CARDS ===== */
@@ -236,3 +238,37 @@ body {
 
 .summary-row:last-child { border-bottom: none; }
 .summary-row strong { color: var(--navy); }
+
+/* ===== LONG-FORM APPLICATION ===== */
+.application-screen { min-height: calc(100vh - 128px); }
+.application-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); gap: 54px; width: min(1060px, calc(100% - 88px)); height: calc(100vh - 164px); margin: 0 auto; padding: 54px 0 42px; }
+.application-steps { position: relative; padding: 16px 0; }
+.application-step { position: relative; z-index: 1; display: flex; align-items: center; gap: 13px; color: rgba(27, 49, 95, 0.45); font-size: 14px; font-weight: 600; transition: color 0.25s ease; }
+.application-step.active { color: var(--navy); }
+.step-bubble { display: grid; place-items: center; width: 31px; height: 31px; border: 2px solid rgba(27, 49, 95, 0.25); border-radius: 50%; background: rgba(255, 255, 255, 0.3); color: rgba(27, 49, 95, 0.45); font-size: 13px; transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+.application-step.active .step-bubble { border-color: var(--orange); background: var(--orange); color: white; }
+.step-line { width: 2px; height: 46px; margin: 0 0 0 14px; background: linear-gradient(var(--orange), rgba(27, 49, 95, 0.16)); }
+.application-scroll { min-width: 0; height: 100%; padding: 0 28px 0 0; overflow-y: auto; scroll-behavior: smooth; scrollbar-color: rgba(27, 49, 95, 0.42) transparent; }
+.application-section { min-height: 520px; padding: 12px 0 92px; border-bottom: 1px solid rgba(27, 49, 95, 0.18); scroll-margin-top: 26px; }
+.application-section + .application-section { padding-top: 80px; }
+.application-section h2 { max-width: 680px; }
+.section-intro { max-width: 540px !important; }
+.product-cards { max-width: 660px; gap: 14px; }
+.product-card { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; border: 1px solid rgba(27, 49, 95, 0.2); background: rgba(255, 255, 255, 0.26); color: var(--navy); text-align: left; }
+.product-card strong { font-size: 18px; }
+.product-card span { color: rgba(27, 49, 95, 0.7); font-size: 13px; }
+.product-card:hover, .product-card.selected { border-color: var(--orange); background: var(--orange); box-shadow: 0 9px 20px rgba(110, 54, 39, 0.14); }
+.product-card.selected span, .product-card:hover span { color: white; }
+.details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 660px; }
+.details-grid .input-field { max-width: none; margin: 0; background: rgba(255, 255, 255, 0.48); border-color: rgba(27, 49, 95, 0.25); }
+.verify-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 660px; }
+.verify-step { max-width: none; min-height: 124px; background: rgba(255, 255, 255, 0.26); border-color: rgba(27, 49, 95, 0.2); }
+.disclosure-copy { max-width: 660px; padding: 24px; margin-bottom: 26px; border: 1px solid rgba(27, 49, 95, 0.18); background: rgba(255, 255, 255, 0.25); }
+.disclosure-copy p { max-width: none; margin-bottom: 18px; font-size: 14px; }
+.disclosure-copy p:last-child { margin-bottom: 0; }
+.agreement-control { display: flex; align-items: center; gap: 12px; color: var(--navy); font-size: 15px; font-weight: 600; }
+.agreement-control input { width: 20px; height: 20px; accent-color: var(--orange); }
+.agreement-control input:disabled + span { color: rgba(27, 49, 95, 0.42); }
+.summary-section { min-height: 460px; }
+.summary-section .summary-box { max-width: 660px; background: rgba(255, 255, 255, 0.3); border-color: rgba(27, 49, 95, 0.2); }
+.summary-section .btn-secondary { margin-left: 10px; }
