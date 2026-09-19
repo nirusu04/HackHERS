@@ -1,7 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head><title>TrustPath</title></head>
+<head>
+  <title>TrustPath - UFCU</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h1>Hello, UFCU!</h1>
+
+  <header class="site-header">
+    <div class="logo">ufcu.</div>
+    <nav class="nav-links">
+      <span>Personal</span>
+      <span>Business</span>
+      <span>Locations</span>
+      <span>About</span>
+    </nav>
+  </header>
+
+  <div class="page-banner">
+    <h1>Open an Account</h1>
+  </div>
+
+  <div id="app">
+
+    <div class="trust-meter-track">
+      <div class="trust-meter-fill" id="trust-fill"></div>
+    </div>
+
+    <div class="screen active" id="screen-welcome">
+      <div class="content">
+        <h2>Welcome to UFCU</h2>
+        <p>Opening an account shouldn't feel like a maze. Let's get you started — simply, and with full trust every step of the way.</p>
+        <button id="btn-get-started" class="btn-primary">Get Started</button>
+      </div>
+    </div>
+
+    <div class="screen" id="screen-info">
+      <div class="content">
+        <h2>Let's get to know you</h2>
+        <p class="why-text">We use this to set up your account securely — nothing more.</p>
+
+        <input type="text" id="input-name" placeholder="Full Name" class="input-field">
+        <input type="text" id="input-dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input-field">
+        <input type="email" id="input-email" placeholder="Email" class="input-field">
+        <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
+
+        <button id="btn-info-next" class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
