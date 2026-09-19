@@ -158,6 +158,11 @@ body {
 .bubble-terracotta { right: 31%; top: 24%; width: 122px; height: 92px; background: rgba(207, 145, 108, 0.36); transform: rotate(-16deg); }
 .bubble-blush { right: 20%; top: 1%; width: 166px; height: 118px; background: rgba(246, 182, 170, 0.45); transform: rotate(20deg); }
 
+@media (min-height: 700px) {
+  .welcome-illustration { top: auto; bottom: 1%; width: 56%; max-width: 520px; }
+  .welcome-bubbles { top: auto; bottom: 7%; width: 58%; height: 270px; }
+}
+
 /* ===== PRODUCT CARDS ===== */
 .product-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; max-width: 480px; }
 
@@ -286,6 +291,10 @@ body {
 .application-section h2 { max-width: 680px; }
 .section-intro { max-width: 540px !important; }
 .product-cards { max-width: 660px; gap: 14px; }
+.account-group { max-width: 660px; margin-bottom: 28px; }
+.account-group h3 { margin: 0 0 12px; color: rgba(27, 49, 95, 0.76); font-size: 21px; font-weight: 500; text-align: center; }
+.account-cards { display: grid; grid-template-columns: repeat(3, 1fr); max-width: none; gap: 10px; margin-bottom: 0; }
+.savings-cards { grid-template-columns: repeat(2, 1fr); }
 .product-card { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; border: 1px solid rgba(27, 49, 95, 0.2); background: rgba(255, 255, 255, 0.26); color: var(--navy); text-align: left; }
 .product-card strong { display: flex; width: 100%; justify-content: space-between; font-size: 18px; }
 .product-card span { color: rgba(27, 49, 95, 0.7); font-size: 13px; }
@@ -297,6 +306,20 @@ body {
 .product-card.selected span, .product-card:hover span { color: white; }
 .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 660px; }
 .details-grid .input-field { max-width: none; margin: 0; background: rgba(255, 255, 255, 0.48); border-color: rgba(27, 49, 95, 0.25); }
+.details-grid .full-width { grid-column: 1 / -1; }
+.input-ssn { letter-spacing: 0.08em; }
+.check-row { display: flex; align-items: center; gap: 12px; max-width: 660px; margin-top: 24px; color: rgba(27, 49, 95, 0.72); font-size: 13px; }
+.check-row input { width: 18px; height: 18px; accent-color: var(--orange); }
+.funding-choice { display: flex; gap: 18px; max-width: 660px; margin: 28px 0; }
+.funding-option { display: flex; align-items: center; gap: 12px; min-width: 150px; padding: 14px 24px; border: 1px solid rgba(27, 49, 95, 0.2); border-radius: 999px; background: rgba(255, 255, 255, 0.28); color: var(--navy); font-size: 16px; cursor: pointer; }
+.funding-option.selected, .funding-bank-option.selected { border-color: var(--orange); background: var(--orange); color: white; }
+.funding-option .selection-indicator { display: block; width: 18px; height: 18px; flex: 0 0 18px; border: 2px solid rgba(27, 49, 95, 0.35); border-radius: 50%; }
+.funding-option.selected .selection-indicator { border: 5px solid white; }
+.funding-method { max-width: 660px; }
+.funding-method[hidden] { display: none; }
+.funding-method h3 { margin-bottom: 12px; color: rgba(27, 49, 95, 0.76); font-size: 17px; font-weight: 500; }
+.funding-bank-option { display: flex; width: 100%; justify-content: space-between; padding: 18px 22px; border: 1px solid rgba(27, 49, 95, 0.2); border-radius: 18px; background: rgba(255, 255, 255, 0.28); color: var(--navy); font-size: 15px; cursor: pointer; }
+.funding-bank-option span { font-size: 24px; }
 .verify-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 660px; }
 .verify-step { max-width: none; min-height: 124px; background: rgba(255, 255, 255, 0.26); border-color: rgba(27, 49, 95, 0.2); }
 .disclosure-copy { max-width: 660px; padding: 24px; margin-bottom: 26px; border: 1px solid rgba(27, 49, 95, 0.18); background: rgba(255, 255, 255, 0.25); }
