@@ -150,7 +150,13 @@ body {
 .choice-divider { color: var(--navy); font-size: 17px; }
 .back-button { display: grid; place-items: center; width: 42px; height: 42px; margin: 0 0 24px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.42); color: var(--navy); font-size: 27px; line-height: 1; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
 .back-button:hover { background: rgba(255, 255, 255, 0.62); transform: translateX(-3px); }
-.welcome-illustration { position: absolute; z-index: 1; right: 0; bottom: 0; width: 40%; max-width: 360px; height: auto; opacity: 0.76; pointer-events: none; }
+.welcome-illustration { position: absolute; z-index: 1; top: 330px; right: -2%; width: 48%; max-width: 440px; height: auto; opacity: 0.76; pointer-events: none; }
+.welcome-bubbles { position: absolute; z-index: 0; top: 330px; right: 3%; width: 56%; height: 200px; pointer-events: none; }
+.pastel-bubble { position: absolute; display: block; border-radius: 50%; filter: blur(0.2px); opacity: 0.72; }
+.bubble-lilac { right: 1%; bottom: 2%; width: 230px; height: 178px; background: rgba(177, 169, 201, 0.55); transform: rotate(-12deg); }
+.bubble-sage { left: 12%; bottom: 17%; width: 150px; height: 104px; background: rgba(184, 198, 166, 0.58); transform: rotate(18deg); }
+.bubble-terracotta { right: 31%; top: 24%; width: 122px; height: 92px; background: rgba(207, 145, 108, 0.36); transform: rotate(-16deg); }
+.bubble-blush { right: 20%; top: 1%; width: 166px; height: 118px; background: rgba(246, 182, 170, 0.45); transform: rotate(20deg); }
 
 /* ===== PRODUCT CARDS ===== */
 .product-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; max-width: 480px; }
