@@ -22,6 +22,13 @@
 
   <div id="app">
 
+    <div class="step-dots" id="step-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
     <div class="trust-meter-track">
       <div class="trust-meter-fill" id="trust-fill"></div>
     </div>
@@ -33,6 +40,21 @@
         <button id="btn-get-started" class="btn-primary">Get Started</button>
       </div>
     </div>
+
+    <div class="screen" id="screen-info">
+      <div class="content">
+        <h2>Let's get to know you</h2>
+        <p class="why-text">We use this to set up your account securely — nothing more.</p>
+
+        <input type="text" id="input-name" placeholder="Full Name" class="input-field">
+        <input type="text" id="input-dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input-field">
+        <input type="email" id="input-email" placeholder="Email" class="input-field">
+        <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
+
+        <button id="btn-info-next" class="btn-primary">Continue</button>
+      </div>
+    </div>
+
     <div class="screen" id="screen-product">
       <div class="content">
         <h2>What can we help you with?</h2>
@@ -56,18 +78,29 @@
         <button id="btn-product-next" class="btn-primary">Continue</button>
       </div>
     </div>
-    
-    <div class="screen" id="screen-info">
+
+    <div class="screen" id="screen-verify">
       <div class="content">
-        <h2>Let's get to know you</h2>
-        <p class="why-text">We use this to set up your account securely — nothing more.</p>
+        <h2>Let's verify it's you</h2>
+        <p class="why-text">Quick, secure checks — mocked for this demo; real UFCU uses bank-grade verification.</p>
 
-        <input type="text" id="input-name" placeholder="Full Name" class="input-field">
-        <input type="text" id="input-dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input-field">
-        <input type="email" id="input-email" placeholder="Email" class="input-field">
-        <input type="tel" id="input-phone" placeholder="Phone Number" class="input-field">
+        <div class="verify-step" id="step-id">
+          <div class="verify-row">
+            <span class="verify-label">Identity Check</span>
+            <span class="verify-status" id="id-status">Not started</span>
+          </div>
+          <button id="btn-scan-id" class="btn-secondary">Scan ID</button>
+        </div>
 
-        <button id="btn-info-next" class="btn-primary">Continue</button>
+        <div class="verify-step" id="step-phone">
+          <div class="verify-row">
+            <span class="verify-label">Phone Verification</span>
+            <span class="verify-status" id="phone-status">Not started</span>
+          </div>
+          <button id="btn-verify-phone" class="btn-secondary" disabled>Verify Phone</button>
+        </div>
+
+        <button id="btn-verify-next" class="btn-primary" disabled>Continue</button>
       </div>
     </div>
 
